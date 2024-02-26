@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Multi-View Website</title>
+    <title>DZG JIN AH| WOODFINDER</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <style>
@@ -42,12 +42,12 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="input-container">
-                    <input type="text" class="form-control urlInput" placeholder="Land 1" maxlength="4">
+                    <input type="text" class="form-control urlInput" data-frame="frame1" placeholder="Land 4462" maxlength="4">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-container">
-                    <input type="text" class="form-control urlInput" placeholder="Land 2" maxlength="4">
+                    <input type="text" class="form-control urlInput" data-frame="frame2" placeholder="Land 4416" maxlength="4">
                 </div>
             </div>
         </div>
@@ -83,12 +83,12 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="input-container">
-                    <input type="text" class="form-control urlInput" placeholder="Land 3" maxlength="4">
+                    <input type="text" class="form-control urlInput" data-frame="frame3" placeholder="Land 1224" maxlength="4">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-container">
-                    <input type="text" class="form-control urlInput" placeholder="Land 4" maxlength="4">
+                    <input type="text" class="form-control urlInput" data-frame="frame4" placeholder="Land 1095" maxlength="4">
                 </div>
             </div>
         </div>
@@ -126,55 +126,62 @@
 
         function updateURLs() {
             var urlInputs = document.querySelectorAll('.urlInput');
-            urlInputs.forEach(function(input, index) {
+            urlInputs.forEach(function(input) {
+                var frameId = input.dataset.frame;
+                var frame = document.getElementById(frameId);
                 var newDigits = input.value;
-                if (newDigits.length === 4) {
-                    var frame = document.getElementById('frame' + (index + 1));
-                    var newURL = updateURL(frame.src, newDigits);
+                if (newDigits.length === 4 && !isNaN(newDigits) && parseInt(newDigits) <= 5000) {
+                    var newURL = updateURL(frame.src, newDigits.padStart(4, '0'));
                     frame.src = newURL;
+                } else {
+                    alert("Please enter a valid 4-digit number (maximum 5000).");
                 }
             });
         }
 
         function randomAll() {
-            for(let i = 1; i <= 4; i++) {
-                var frame = document.getElementById('frame' + i);
-                var randomDigits = Math.floor(1000 + Math.random() * 9000); // Generate 4-digit number
-                var newURL = updateURL(frame.src, randomDigits.toString());
+            for (let i = 1; i <= 4; i++) {
+                var frameId = 'frame' + i;
+                var frame = document.getElementById(frameId);
+                var randomDigits = Math.floor(1000 + Math.random() * 4000); // Generate random 4-digit number between 1000 and 5000
+                var newURL = updateURL(frame.src, randomDigits.toString().padStart(4, '0'));
                 frame.src = newURL;
+                document.querySelector('.urlInput[data-frame="' + frameId + '"]').value = randomDigits.toString(); // Update textbox with random number
             }
         }
 
         function next(frameId) {
             var frame = document.getElementById(frameId);
-            var currentDigits = frame.src.substring(frame.src.length - 4);
-            var nextDigits = parseInt(currentDigits) + 1;
-            if (nextDigits > 9999) {
+            var currentDigits = parseInt(frame.src.substring(frame.src.length - 4));
+            var nextDigits = currentDigits + 1;
+            if (nextDigits > 5000) {
                 nextDigits = 1000;
             }
             var newURL = updateURL(frame.src, nextDigits.toString().padStart(4, '0'));
             frame.src = newURL;
+            document.querySelector('.urlInput[data-frame="' + frameId + '"]').value = nextDigits.toString(); // Update textbox with next number
         }
 
         function previous(frameId) {
             var frame = document.getElementById(frameId);
-            var currentDigits = frame.src.substring(frame.src.length - 4);
-            var previousDigits = parseInt(currentDigits) - 1;
+            var currentDigits = parseInt(frame.src.substring(frame.src.length - 4));
+            var previousDigits = currentDigits - 1;
             if (previousDigits < 1000) {
-                previousDigits = 9999;
+                previousDigits = 5000;
             }
             var newURL = updateURL(frame.src, previousDigits.toString().padStart(4, '0'));
             frame.src = newURL;
+            document.querySelector('.urlInput[data-frame="' + frameId + '"]').value = previousDigits.toString(); // Update textbox with previous number
         }
 
         function nextAll() {
-            for(let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 4; i++) {
                 next('frame' + i);
             }
         }
 
         function previousAll() {
-            for(let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 4; i++) {
                 previous('frame' + i);
             }
         }
