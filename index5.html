@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>DZG JIN AH| WOODFINDER</title>
+    <link rel="icon" type="image/x-icon" href="dzg.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+         .navbar-brand img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #515151; /* Adjust color as needed */
+    }
+        iframe {
+            width: 100%;
+            height: 40vh;
+            /* border: none;  */
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+        }
+        .input-container input {
+            flex-grow: 1;
+        }
+        .input-container button {
+            margin-left: 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+      background-image: url('Images/dcdoozie.gif');
+      /* background-repeat: repeat-x; */
+            background-size: 100%;
+            background-repeat:no-repeat;
+            background-color:#04082f;
+      
+    }
+    </style>
+</head>
+<body><nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="Images/dzgicon.webp" alt="DZG findwood Logo">
+        DZG WOODFINDER
+    </a>
+    <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+            <a class="nav-link" href="https://discord.gg/jw5UF4fMQe"><i class="fab fa-discord"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/dooziex_"><i class="fab fa-twitter"></i></a>
+        </li>
+    </ul>
+</nav>
+
+    <div class="container">
+        <br>
+       
+        <br>
+    <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-dark btn-block" onclick="previousAll()">Previous Lands</button>
+                
+                <button class="btn btn-dark btn-block" onclick="nextAll()">Next Lands</button>
+            </div>
+            <div class="col-md-6">
+                <!-- <button class="btn btn-dark btn-block" onclick="updateURLs()">Refresh</button> -->
+                <button class="btn btn-dark btn-block" onclick="randomAll()">Generate Random Lands</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame1" placeholder="Land 4462 SEARCH" min="1" max="999" value="4462">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" onclick="updateURL('frame1')">Go</button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame2" placeholder="Land 4416 SEARCH" min="1" max="999" value="4416">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" onclick="updateURL('frame2')">Go</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <br>
+       
+        <div class="row">
+            <div class="col-md-6">
+                <div class="iframe-wrapper">
+                    <iframe id="frame1" src="https://play.pixels.xyz/pixels/share/4462"></iframe>
+                    <div class="iframe-controls">
+                        <div class="row">
+                        <div class="col-md-6">
+                        <button class="btn btn-dark col-md-12" onclick="previous('frame1')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark col-md-12" onclick="next('frame1')">Next</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="iframe-wrapper">
+                    <iframe id="frame2" src="https://play.pixels.xyz/pixels/share/4416"></iframe>
+                    <div class="iframe-controls">
+                        <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-dark btn-block col-md-12" onclick="previous('frame2')">Previous</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-dark btn-block col-md-12" onclick="next('frame2')">Next</button>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame3" placeholder="Land 1224 SEARCH" min="1" max="999" value="1224">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" onclick="updateURL('frame3')">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame4" placeholder="Land 1095 SEARCH" min="1" max="999" value="1095">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" onclick="updateURL('frame4')">Go</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame5" placeholder="Land 3848 SEARCH" min="1" max="999" value="3848">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" onclick="updateURL('frame5')">Go</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="iframe-wrapper">
+                    <iframe id="frame3" src="https://play.pixels.xyz/pixels/share/1224"></iframe>
+                    <div class="iframe-controls">
+                        <div class="row">
+                            <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="previous('frame3')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="next('frame3')">Next</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="iframe-wrapper">
+                    <iframe id="frame4" src="https://play.pixels.xyz/pixels/share/1095"></iframe>
+                    <div class="iframe-controls">
+                        <div class="row">
+                            <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="previous('frame4')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="next('frame4')">Next</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="iframe-wrapper">
+                    <iframe id="frame5" src="https://play.pixels.xyz/pixels/share/3848"></iframe>
+                    <div class="iframe-controls">
+                        <div class="row">
+                            <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="previous('frame5')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="next('frame5')">Next</button>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer class="footer bg-dark">
+        <div class="container">
+            <span class="text-light">&copy; Jin Ah</span>
+        </div>
+    </footer>
+
+    <script>
+        function updateURL(base) {
+            var input = document.querySelector('.urlInput[data-frame="' + base + '"]');
+            var newDigits = input.value;
+            if (newDigits >= 1 && newDigits <= 5000) {
+                var frame = document.getElementById(base);
+                var newURL = frame.src.split('/');
+                newURL[newURL.length - 1] = newDigits;
+                frame.src = newURL.join('/');
+            } else {
+                alert("Please enter a number between 1 and 5000.");
+            }
+        }
+
+        function updateURLs() {
+            var urlInputs = document.querySelectorAll('.urlInput');
+            urlInputs.forEach(function(input) {
+                var frameId = input.dataset.frame;
+                updateURL(frameId);
+            });
+        }
+
+        function randomAll() {
+            for (let i = 1; i <= 4; i++) {
+                var frameId = 'frame' + i;
+                var frame = document.getElementById(frameId);
+                var randomDigits = Math.floor(Math.random() * 4999) + 1; // Generate random number between 1 and 999
+                var newURL = frame.src.split('/');
+                newURL[newURL.length - 1] = randomDigits;
+                frame.src = newURL.join('/');
+                document.querySelector('.urlInput[data-frame="' + frameId + '"]').value = randomDigits; // Update textbox with random number
+            }
+        }
+
+        function next(frameId) {
+            var frame = document.getElementById(frameId);
+            var currentDigits = parseInt(frame.src.substring(frame.src.lastIndexOf('/') + 1));
+            var nextDigits = currentDigits + 1;
+            if (nextDigits > 5000) {
+                nextDigits = 1;
+            }
+            var newURL = frame.src.split('/');
+            newURL[newURL.length - 1] = nextDigits;
+            frame.src = newURL.join('/');
+            document.querySelector('.urlInput[data-frame="' + frameId + '"]').value = nextDigits; // Update textbox with next number
+        }
+
+        function previous(frameId) {
+            var frame = document.getElementById(frameId);
+            var currentDigits = parseInt(frame.src.substring(frame.src.lastIndexOf('/') + 1));
+            var previousDigits = currentDigits - 1;
+            if (previousDigits < 1) {
+                previousDigits = 5000;
+            }
+            var newURL = frame.src.split('/');
+            newURL[newURL.length - 1] = previousDigits;
+            frame.src = newURL.join('/');
+            document.querySelector('.urlInput[data-frame="' + frameId + '"]').value = previousDigits; // Update textbox with previous number
+        }
+
+        function nextAll() {
+            for (let i = 1; i <= 4; i++) {
+                next('frame' + i);
+            }
+        }
+
+        function previousAll() {
+            for (let i = 1; i <= 4; i++) {
+                previous('frame' + i);
+            }
+        }
+    </script>
+</body>
+</html>
