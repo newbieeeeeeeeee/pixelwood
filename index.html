@@ -160,13 +160,13 @@
         function updateURL(base) {
             var input = document.querySelector('.urlInput[data-frame="' + base + '"]');
             var newDigits = input.value;
-            if (newDigits >= 1 && newDigits <= 999) {
+            if (newDigits >= 1 && newDigits <= 5000) {
                 var frame = document.getElementById(base);
                 var newURL = frame.src.split('/');
                 newURL[newURL.length - 1] = newDigits;
                 frame.src = newURL.join('/');
             } else {
-                alert("Please enter a number between 1 and 999.");
+                alert("Please enter a number between 1 and 5000.");
             }
         }
 
@@ -182,7 +182,7 @@
             for (let i = 1; i <= 4; i++) {
                 var frameId = 'frame' + i;
                 var frame = document.getElementById(frameId);
-                var randomDigits = Math.floor(Math.random() * 999) + 1; // Generate random number between 1 and 999
+                var randomDigits = Math.floor(Math.random() * 4999) + 1; // Generate random number between 1 and 999
                 var newURL = frame.src.split('/');
                 newURL[newURL.length - 1] = randomDigits;
                 frame.src = newURL.join('/');
@@ -194,7 +194,7 @@
             var frame = document.getElementById(frameId);
             var currentDigits = parseInt(frame.src.substring(frame.src.lastIndexOf('/') + 1));
             var nextDigits = currentDigits + 1;
-            if (nextDigits > 999) {
+            if (nextDigits > 5000) {
                 nextDigits = 1;
             }
             var newURL = frame.src.split('/');
@@ -208,7 +208,7 @@
             var currentDigits = parseInt(frame.src.substring(frame.src.lastIndexOf('/') + 1));
             var previousDigits = currentDigits - 1;
             if (previousDigits < 1) {
-                previousDigits = 999;
+                previousDigits = 5000;
             }
             var newURL = frame.src.split('/');
             newURL[newURL.length - 1] = previousDigits;
