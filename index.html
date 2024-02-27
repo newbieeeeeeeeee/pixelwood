@@ -22,8 +22,8 @@
     }
         iframe {
             width: 100%;
-            height: 50vh;
-            border: none;
+            height: 40vh;
+            /* border: none;  */
         }
         .input-container {
             display: flex;
@@ -40,63 +40,77 @@
             padding: 20px 0;
         }
         body {
-      background-image: url('Images/dzgicon.webp');
+      background-image: url('images/dcdoozie.gif');
     }
     </style>
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-        <a class="navbar-brand" href="#">
-            <img src="Images/dzgicon.webp" alt="DZG findwood Logo">
-            DZG findwood
-        </a>
-    </nav>
+<body><nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="Images/dzgicon.webp" alt="DZG findwood Logo">
+        DZG WOODFINDER
+    </a>
+    <ul class="navbar-nav ml-auto">
+        
+        <li class="nav-item">
+            <a class="nav-link" href="https://discord.gg/jw5UF4fMQe"><i class="fab fa-discord"></i></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/dooziex_"><i class="fab fa-twitter"></i></a>
+        </li>
+    </ul>
+</nav>
+
     <div class="container">
         <br>
-        <br>
+       
         <br>
     <div class="row">
             <div class="col-md-6">
-                <button class="btn btn-secondary btn-block" onclick="previousAll()">Previous All</button>
+                <button class="btn btn-dark btn-block" onclick="previousAll()">Previous Lands</button>
+                
+                <button class="btn btn-dark btn-block" onclick="nextAll()">Next Lands</button>
             </div>
             <div class="col-md-6">
-                <button class="btn btn-secondary btn-block" onclick="nextAll()">Next All</button>
+                <!-- <button class="btn btn-dark btn-block" onclick="updateURLs()">Refresh</button> -->
+                <button class="btn btn-dark btn-block" onclick="randomAll()">Generate Random Lands</button>
             </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-md-6">
-                <div class="input-container input-group-append">
-                    <input type="number" class="form-control urlInput" data-frame="frame1" placeholder="Land 4462(Input number here for search)" min="1" max="999">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame1" placeholder="Land 4462 SEARCH" min="1" max="999" value="4462">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" onclick="updateURL('frame1')">Go</button>
+                        <button class="btn btn-dark" onclick="updateURL('frame1')">Go</button>
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-6">
-                <div class="input-container input-group-append">
-                    <input type="number" class="form-control urlInput" data-frame="frame2" placeholder="Land 4416(Input number here for search)" min="1" max="999">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame2" placeholder="Land 4416 SEARCH" min="1" max="999" value="4416">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" onclick="updateURL('frame2')">Go</button>
+                        <button class="btn btn-dark" onclick="updateURL('frame2')">Go</button>
                     </div>
                 </div>
             </div>
+            
         </div>
-        
-        <div class="row">
-            <div class="col-md-6 hidden">
-                <!-- <button class="btn btn-secondary btn-block" onclick="updateURLs()"></button> -->
-            </div>
-            <div class="col-md-12">
-                <button class="btn btn-secondary btn-block" onclick="randomAll()">Draw(Random Lands) x 4</button>
-            </div>
-        </div>
+        <br>
+       
         <div class="row">
             <div class="col-md-6">
                 <div class="iframe-wrapper">
                     <iframe id="frame1" src="https://play.pixels.xyz/pixels/share/4462"></iframe>
                     <div class="iframe-controls">
-                        <button class="btn btn-secondary btn-block" onclick="previous('frame1')">Previous</button>
-                        <button class="btn btn-secondary btn-block" onclick="next('frame1')">Next</button>
+                        <div class="row">
+                        <div class="col-md-6">
+                        <button class="btn btn-dark col-md-12" onclick="previous('frame1')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark col-md-12" onclick="next('frame1')">Next</button>
+                        </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -104,37 +118,52 @@
                 <div class="iframe-wrapper">
                     <iframe id="frame2" src="https://play.pixels.xyz/pixels/share/4416"></iframe>
                     <div class="iframe-controls">
-                        <button class="btn btn-secondary btn-block" onclick="previous('frame2')">Previous</button>
-                        <button class="btn btn-secondary btn-block" onclick="next('frame2')">Next</button>
+                        <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-dark btn-block col-md-12" onclick="previous('frame2')">Previous</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-dark btn-block col-md-12" onclick="next('frame2')">Next</button>
+                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <br>
         <div class="row">
             <div class="col-md-6">
-                <div class="input-container input-group-append">
-                    <input type="number" class="form-control urlInput" data-frame="frame3" placeholder="Land 1224(Input number here for search)" min="1" max="999">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame3" placeholder="Land 1224 SEARCH" min="1" max="999" value="1224">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" onclick="updateURL('frame3')">Go</button>
+                        <button class="btn btn-dark" onclick="updateURL('frame3')">Go</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="input-container input-group-append">
-                    <input type="number" class="form-control urlInput" data-frame="frame4" placeholder="Land 1095(Input number here for search)" min="1" max="999">
+                <div class="input-group">
+                    <input type="number" class="form-control urlInput" data-frame="frame4" placeholder="Land 1095 SEARCH" min="1" max="999" value="1095">
                     <div class="input-group-append">
-                        <button class="btn btn-secondary" onclick="updateURL('frame4')">Go</button>
+                        <button class="btn btn-dark" onclick="updateURL('frame4')">Go</button>
                     </div>
                 </div>
             </div>
+            
         </div>
+        <br>
         <div class="row">
             <div class="col-md-6">
                 <div class="iframe-wrapper">
                     <iframe id="frame3" src="https://play.pixels.xyz/pixels/share/1224"></iframe>
                     <div class="iframe-controls">
-                        <button class="btn btn-secondary btn-block" onclick="previous('frame3')">Previous</button>
-                        <button class="btn btn-secondary btn-block" onclick="next('frame3')">Next</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="previous('frame3')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="next('frame3')">Next</button>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -142,17 +171,23 @@
                 <div class="iframe-wrapper">
                     <iframe id="frame4" src="https://play.pixels.xyz/pixels/share/1095"></iframe>
                     <div class="iframe-controls">
-                        <button class="btn btn-secondary btn-block" onclick="previous('frame4')">Previous</button>
-                        <button class="btn btn-secondary btn-block" onclick="next('frame4')">Next</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="previous('frame4')">Previous</button>
+                        </div>
+                        <div class="col-md-6">
+                        <button class="btn btn-dark btn-block" onclick="next('frame4')">Next</button>
+                    </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <br>
-    <footer class="footer bg-secondary">
+    <footer class="footer bg-dark">
         <div class="container">
-            <span>&copy; Jin Ah</span>
+            <span class="text-light">&copy; Jin Ah</span>
         </div>
     </footer>
 
